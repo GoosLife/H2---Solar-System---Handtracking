@@ -10,10 +10,8 @@ import mediapipe as mp
 mpDraw = mp.solutions.drawing_utils
 mpDrawingStyles = mp.solutions.drawing_styles
 
-# Hand detector, for detecting hands to be drawn
-handDetector = hand_detection.HandDetector()
-
-def render():
+def render(handDetector):
+    # Reset gesture strings
     leftGesture = rightGesture = ""
     
     success, image = cap.read()

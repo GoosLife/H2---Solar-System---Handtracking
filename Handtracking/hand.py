@@ -13,7 +13,8 @@ class Hand:
 
     def getGesture(self):
         if (self.handLandmarks is not None):
-            return gesture_detection.detectGesture(self.handLandmarks)
+            self.gesture = gesture_detection.detectGesture(self.handLandmarks)
+            return self.gesture
         else:
             return "none"
 

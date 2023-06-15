@@ -1,3 +1,4 @@
+from collections import defaultdict
 from hand import Hand
 
 import mediapipe as mp
@@ -82,3 +83,13 @@ class HandDetector:
 
         if self.RIGHT_HAND < len(self.handList):
             self.handList[self.RIGHT_HAND].setHandedness("Right")
+
+    def getRightGesture(self):
+        if self.RIGHT_HAND >= 0 and self.RIGHT_HAND < len(self.handList):
+            return self.handList[self.RIGHT_HAND].getGesture()
+        return "none"
+
+    def getLeftGesture(self):
+        if self.LEFT_HAND >= 0 and self.LEFT_HAND < len(self.handList):
+            return self.handList[self.LEFT_HAND].getGesture()
+        return "none"
